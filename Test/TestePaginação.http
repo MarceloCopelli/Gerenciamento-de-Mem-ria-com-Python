@@ -1,0 +1,45 @@
+==============================================
+ SIMULADOR DE GERENCIAMENTO DE MEMÓRIA (Paginação)
+==============================================
+
+Memória Física (Quadros de 4 KB):
+[Quadro 000] Pp1 - Página 0
+[Quadro 001] Pp1 - Página 1
+[Quadro 002] Pp2 - Página 0
+[Quadro 003] Pp2 - Página 1
+[Quadro 004] Pp2 - Página 2
+[Quadro 005] Pp3 - Página 0
+[Quadro 006] Pp3 - Página 1
+[Quadro 007] Pp3 - Página 2
+
+Tabela de Páginas - Processo p1
+------------------------------
+Página    Quadro    
+------------------------------
+0         0
+1         1
+
+Tabela de Páginas - Processo p2
+------------------------------
+Página    Quadro    
+------------------------------
+0         2
+1         3
+2         4
+
+Tabela de Páginas - Processo p3
+------------------------------
+Página    Quadro    
+------------------------------
+0         5
+1         6
+2         7
+
+Fragmentação Interna: 4 KB (12.50%)
+
+
+// Para a paginação pura, foi configurada uma memória com um tamanho total de 32KB e com uma página de 4KB,
+   ou seja, tera 8 quadros. Foi adicionado o p1(6KB), que precisou de 2 páginas, deixando uma fragmentação
+   interna de 2KB(6,25%), por enquanto. Em seguida, vem o processo p2(10KB), que precisou de 3 páginas, a
+   fragmentação interna aumentou para 4KB(12,5%). Após isso, vem o p3(12KB), que também precisou de 3 páginas,
+   mantendo a fragmentação interna anterior.

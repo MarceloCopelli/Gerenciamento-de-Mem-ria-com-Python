@@ -1,0 +1,224 @@
+==============================================
+ SIMULADOR DE GERENCIAMENTO DE MEMÓRIA (Contíguo)
+==============================================
+Algoritmo atual: First-Fit
+
+Memória (blocos de 10 KB):
+[000] Processo p1
+ até...
+[009] Processo p1
+[010] Processo p2
+ até...
+[029] Processo p2
+[030] Processo p3
+ até...
+[059] Processo p3
+[060] Processo p4
+ até...
+[099] Processo p4
+
+Tabela de Processos:
+----------------------------------------
+PID     Base    Limite  Tamanho(KB)
+----------------------------------------
+p1      0       99      100
+p2      100     299     200
+p3      300     599     300
+p4      600     999     400
+
+Fragmentação Externa: 0 KB (0.00%)
+
+// Foi adicionado 4 processos no modo de alocação 'First-Fit', o p1 contendo 100KB e ocupando 10 blocos de 10KB,
+   o p2 contendo 200KB e ocupando 20 blocos, o p3 contendo 300KB e ocupando 30 blocos e por fim o p4 contendo 400KB
+   e ocupando 40 blocos, lembrando que os blocos começam vazios.
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Algoritmo atual: First-Fit
+
+Memória (blocos de 10 KB):
+[000] Processo p1
+ até...
+[009] Processo p1
+[010] Livre
+ até...
+[029] Livre
+[030] Processo p3
+ até...
+[059] Processo p3
+[060] Livre
+ até...
+[099] Livre
+
+Tabela de Processos:
+----------------------------------------
+PID     Base    Limite  Tamanho(KB)
+----------------------------------------
+p1      0       99      100
+p3      300     599     300
+
+Fragmentação Externa: 200 KB (20.00%)
+
+// Agora foi usado a opção de remover determinado processo, e foram removidos o p1 e p4, respectivamente,
+   deixando dois espaços de blocos não contíguos livres na memória e causando uma Fragmentação externa de 200KB(20%).
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+Algoritmo atual: First-Fit
+
+Memória (blocos de 10 KB):
+[000] Processo p1
+ até...
+[009] Processo p1
+[010] Processo p5
+ até...
+[019] Processo p5
+[020] Livre
+ até...
+[029] Livre
+[030] Processo p3
+ até...
+[059] Processo p3
+[060] Livre
+ até...
+[099] Livre
+
+Tabela de Processos:
+----------------------------------------
+PID     Base    Limite  Tamanho(KB)
+----------------------------------------
+p1      0       99      100
+p3      300     599     300
+p5      100     199     100
+
+Fragmentação Externa: 100 KB (10.00%)
+
+// Foi adicionado um outro processo, agora o p5, para mostrar como o first-fit funciona, assim que adicionado, o p5 foi alocado
+   diretamente no primeiro espaço livre da memória, logo após o p1, causando agora uma Fragmentação externa de 100KB(10%).
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+==============================================
+ SIMULADOR DE GERENCIAMENTO DE MEMÓRIA (Contíguo)
+==============================================
+Algoritmo atual: Best-Fit
+
+Memória (blocos de 10 KB):
+[000] Livre
+ até...
+[009] Livre
+[010] Processo p2
+ até...
+[029] Processo p2
+[030] Processo p5
+ até...
+[044] Processo p5
+[045] Livre
+ até...
+[059] Livre
+[060] Processo p4
+ até...
+[099] Processo p4
+
+Tabela de Processos:
+----------------------------------------
+PID     Base    Limite  Tamanho(KB)
+----------------------------------------
+p2      100     299     200
+p4      600     999     400
+p5      300     449     150
+
+Fragmentação Externa: 100 KB (10.00%)
+
+
+// Para o modo Best-Fit, foi alocado na memória os processos: p1, p2, p3 e p4, com tamanho de 100KB, 200KB, 300KB e 400KB,
+   respectivamente. O algoritmo escolheu o melhor espaço para ser alocado cada processo, levando em consideração os espaços
+   livres. Logo em seguida, foi removido da memória, os processos p3 e p1, deixando dois espaços não contíguos na memória e 
+   causando 100KB(10%) de fragmentação externa. Apois, foi adicionado o p5 com 150KB, e foi alocado entre o p2 e p4.
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+==============================================
+ SIMULADOR DE GERENCIAMENTO DE MEMÓRIA (Contíguo)
+==============================================
+Algoritmo atual: Worst-Fit
+
+Memória (blocos de 10 KB):
+[000] Livre
+ até...
+[014] Livre
+[015] Processo p3
+ até...
+[034] Processo p3
+[035] Processo p5
+ até...
+[042] Processo p5
+[043] Livre
+ até...
+[099] Livre
+
+Tabela de Processos:
+----------------------------------------
+PID     Base    Limite  Tamanho(KB)
+----------------------------------------
+p3      150     349     200
+p5      350     429     80
+
+Fragmentação Externa: 150 KB (15.00%)
+
+
+// No modelo Worst-Fit, foi adicionado p1(100KB), p2(50KB), p3(200KB) e p4(70KB). Em seguida, foi removido p1, p2 e p4 e depois de removido, foi 
+   adicionado o p5(80KB), que foi alocado no maior espaço livre disponivel, que seria logo após o p3, deixando uma fragmentação externa de 150KB(15%).
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+==============================================
+ SIMULADOR DE GERENCIAMENTO DE MEMÓRIA (Contíguo)
+==============================================
+Algoritmo atual: Circular-Fit
+
+Memória (blocos de 10 KB):
+[000] Processo P1
+ até...
+[009] Processo P1
+[010] Livre
+ até...
+[014] Livre
+[015] Processo P3
+ até...
+[034] Processo P3
+[035] Processo P4
+ até...
+[037] Processo P4
+[038] Livre
+ até...
+[099] Livre
+
+Tabela de Processos:
+----------------------------------------
+PID     Base    Limite  Tamanho(KB)
+----------------------------------------
+P1      0       99      100
+P3      150     349     200
+P4      350     379     30
+
+Fragmentação Externa: 50 KB (5.00%)
+
+
+// No Circular-Fit, foi adicionado os processos p1(100KB), p2(50KB) e p3(200KB). Em seguida, foi removido o processo p2,
+   e adicionado o p4(30KB), deixando uma fragmentação externa de 50KB(5%). Nota-se que o p4 foi alocado a partir do ultimo
+   ponto de alocação, que seria a alocação do p3.
