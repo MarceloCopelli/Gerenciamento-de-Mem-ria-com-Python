@@ -32,9 +32,18 @@ A simulação de Paginação Pura demonstra como um processo é dividido em part
 
 ---
 
-### Como Executar
+### Tecnologias e Dependências
 
-Este projeto utiliza apenas bibliotecas padrão do Python, o que significa que não é necessário instalar dependências externas.
+O projeto utiliza apenas bibliotecas padrão do Python, o que significa que não é necessário instalar dependências externas. As bibliotecas usadas são:
+
+* **`os`:** Utilizada para interagir com o sistema operacional, como limpar a tela do console.
+    * **Link para a documentação oficial:** [https://docs.python.org/pt-br/3/library/os.html](https://docs.python.org/pt-br/3/library/os.html)
+* **`time`:** Usada para criar pausas intencionais, o que é fundamental para a visualização didática dos algoritmos **Best-Fit** e **Worst-Fit**.
+    * **Link para a documentação oficial:** [https://docs.python.org/pt-br/3/library/time.html](https://docs.python.org/pt-br/3/library/time.html)
+
+---
+
+### Como Executar
 
 1.  **Pré-requisitos:** Certifique-se de ter o **Python** instalado em seu sistema.
 2.  **Abra o arquivo:** No seu ambiente de desenvolvimento, como o VS Code, abra o arquivo-fonte do projeto.
