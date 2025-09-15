@@ -10,16 +10,20 @@ def pause():
     input("\nPressione Enter para continuar...")
 
 # ============================================================
-# ALOCAÇÃO CONTÍGUA (COM VISUALIZAÇÃO AVANÇADA)
+# ALOCAÇÃO CONTÍGUA
 # ============================================================
 
 class MemoriaContigua:
-    def __init__(self, tamanho_kb=1000, tamanho_bloco_kb=10):
-        self.tamanho_kb = tamanho_kb
-        self.tamanho_bloco_kb = tamanho_bloco_kb
-        self.blocos = [None] * (tamanho_kb // tamanho_bloco_kb)
-        self.processos = []
-        self.ultimo_indice_circular = 0
+    ###Esta classe simula a memória principal com alocação contígua.
+    ###Suporta algoritmos: First-Fit, Best-Fit, Worst-Fit e Circular-Fit.
+    ###Permite adicionar/remover processos, visualizar a memória e calcular fragmentação externa.
+
+    def __init__(self, tamanho_kb=1000, tamanho_bloco_kb=10): 
+        self.tamanho_kb = tamanho_kb   # Tamanho total da memória em KB
+        self.tamanho_bloco_kb = tamanho_bloco_kb  # Tamanho de cada bloco em KB
+        self.blocos = [None] * (tamanho_kb // tamanho_bloco_kb)  # Lista representando a memória dividida em blocos
+        self.processos = []  # Lista de processos alocados
+        self.ultimo_indice_circular = 0  # Posição usada pelo algoritmo Circular-Fit
 
     def imprimir_memoria_com_destaques(self, candidatos, inicio_escolhido):
         ###Imprime o estado da memória destacando os buracos candidatos.###
@@ -182,8 +186,8 @@ class MemoriaContigua:
                 inicio = buraco_escolhido['inicio']
                 renderizar_painel_contiguo_destaque(self, dict_algos[estrategia], candidatos, inicio)
                 self._explicar_candidatos(candidatos, inicio)
-                print(f"\nO algoritmo '{dict_algos[estrategia]}' escolheu o buraco em {inicio}. Alocando em 15 segundos...")
-                time.sleep(15)
+                print(f"\nO algoritmo '{dict_algos[estrategia]}' escolheu o buraco em {inicio}. Alocando em 10 segundos...")
+                time.sleep(10)
             
         elif estrategia == "4":
             inicio = self.circular_fit(num_blocos)
