@@ -42,9 +42,9 @@ A simulação de Paginação Pura permite ao usuário configurar o tamanho total
 
 O projeto utiliza apenas bibliotecas padrão do Python, portanto, não há necessidade de instalar pacotes externos.
 
-•	os: Utilizada para a função os.system(), que limpa a tela do console (cls no Windows, clear em Unix/Linux/macOS), melhorando a experiência do usuário.
+•	os: Utilizada para a função os.system(), que limpa a tela do console (cls no Windows, clear em Unix/Linux/macOS), melhorando a experiência do usuário. Estarei disponibilizando o link para a documentação da biblioteca 'os': https://docs.python.org/pt-br/3/library/os.html
 
-•	time: Utilizada para a função time.sleep(), que cria pausas intencionais para fins didáticos, permitindo que o usuário observe o processo de decisão dos algoritmos Best-Fit e Worst-Fit.
+•	time: Utilizada para a função time.sleep(), que cria pausas intencionais para fins didáticos, permitindo que o usuário observe o processo de decisão dos algoritmos Best-Fit e Worst-Fit. Estarei disponibilizando o link para a documentação da biblioteca 'time': https://docs.python.org/pt-br/3.9/library/time.html
 
 *Instruções de Compilação e Execução*
 
