@@ -60,6 +60,8 @@ O menu será dividio em duas partes, Alocação Contígua Dinâmica e Paginaçã
 * **Alocação Contígua Dinâmica:** Indo para a opção da alocação contígua, você terá a informação de qual algoritmo está sendo usado atualmente(First-fit, best...), um desenho da memória com seus espaços e blocos, informações complementares, fragmentação externa e outro menu interativo. O menu da alocação tem 5 opções, a primeira delas sendo de alterar o algoritmo para o desejado, a segunda será para adicionar processos na memória, podendo colocar o PID desejado e seu tamanho em KB, a terceira será de remover o processo desejado, na quarta opção você poderá resetar a simulação e a cinco você poderá voltar para o menu inicial.
 * **Paginação Pura:** A opção da paginação nos da 2 opção de início, uma para configurar a memória, para poder colocar o tamanho total da memória e o tamanho da página, ambos em KB. Já a outra opção será de voltar para o menu inicial. Após configurar a memória, nos é dado um desenho da memória física com seus quadros, junto da fragmentação interna e nosso menu interativo, que conta com 4 opções. Todas as opções da paginação seguem o mesmo modelo da alocação.
 
+---
+
 ### Decisões de Projeto e Arquitetura
 
 O simulador foi construído com as seguintes escolhas de design para garantir a melhor experiência didática e organização do código:
